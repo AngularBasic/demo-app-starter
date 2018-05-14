@@ -1,0 +1,20 @@
+<div class="">
+  <div class="">
+    <div class="header">
+      {{ customer.name}}
+    </div>
+    <div class="content">
+    <span>
+      My hobbies:
+      <span *ngFor="let hobby of customer.hobbies">H: {{hobby}}</span>
+    </span>
+
+    </div>
+    <div class="details">
+      <app-customer-details [customer]="customer"></app-customer-details>
+    </div>
+    <div class="footer">
+
+    </div>
+  </div>
+</div>

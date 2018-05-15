@@ -7,6 +7,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StartsWithLetterDirective} from '../directives/starts-with-letter.directive';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {CustomersRoutingModule} from './customers-routing.module';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import {CustomerService} from './customer.service';
 
 @NgModule({
   imports: [
@@ -25,7 +27,11 @@ import {CustomersRoutingModule} from './customers-routing.module';
     CustomerComponent,
     CustomerDetailsComponent,
     CustomerFormComponent,
-    StartsWithLetterDirective
+    StartsWithLetterDirective,
+    CustomerListComponent
+  ],
+  providers: [
+    CustomerService
   ]
 })
 export class CustomersModule { }

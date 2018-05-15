@@ -6,8 +6,11 @@ export class Customer {
   name: string;
   numberOfOrders = 0;
   email: string;
+  hobbies: string[] = [];
 
   firstname?: string;
+
+  details: string;
 
   static toFormGroup(customer = new Customer()) {
     const builder = new FormBuilder();

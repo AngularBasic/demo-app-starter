@@ -8,6 +8,7 @@ import {StartsWithLetterDirective} from './directives/starts-with-letter.directi
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {AppRoutingModuleModule} from './app-routing-module.module';
 import {HomeModule} from './home/home.module';
+import {AuthGuard} from './guards/auth.guard';
 
 
 @NgModule({
@@ -25,6 +26,9 @@ import {HomeModule} from './home/home.module';
   exports: [
     // MatInputModule,
     // MatFormFieldModule
+  ],
+  providers: [
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

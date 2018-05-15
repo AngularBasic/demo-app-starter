@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Customer} from '../customer';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { map } from 'rxjs/operators';
 import {CustomerService} from '../customer.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -23,6 +23,7 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private customerService: CustomerService
   ) { }
 
@@ -39,8 +40,6 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
     });
 
     this.subscriptions.push(s);
-
-
 
     this.x = 5;
     try {
@@ -59,5 +58,6 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
 }
   submit() {
     console.log('submit', this.form);
+    this.router.navigate(['customers']);
   }
 }

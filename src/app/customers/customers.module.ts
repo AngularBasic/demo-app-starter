@@ -10,6 +10,7 @@ import {CustomersRoutingModule} from './customers-routing.module';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import {CustomerService} from './customer.service';
 import {JoinPipe} from '../pipes/join.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {JoinPipe} from '../pipes/join.pipe';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
     CustomersRoutingModule
   ],
   exports: [

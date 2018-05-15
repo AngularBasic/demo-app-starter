@@ -1,35 +1,24 @@
 import { Injectable } from '@angular/core';
 import {Customer} from './customer';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class CustomerService {
 
-  constructor() { }
-
-  customers: Customer[] = [
-    {
-      name: 'Simpson',
-      firstname: 'Homer',
-      email: 'homer@simpson.com',
-      numberOfOrders: 10,
-      id: 1,
-      hobbies: ['Beer', 'Duff', 'Sleep'],
-      details: 'This is Homer Simpsons Details'
-    },
-    {
-      name: 'Simpson',
-      firstname: 'Marge',
-      email: 'marge@simpson.com',
-      numberOfOrders: 10,
-      id: 2,
-      hobbies: ['??'],
-      details: 'This is Marge Simpsons Details'
-    }
-  ];
-
-  getAll(): Customer[] {
-    return this.customers;
+  constructor(private http: HttpClient) {
+    // this.http.get<Customer[]>('api/customers').subscribe(customers => {
+    //   this.customers = customers;
+    // });
   }
+
+  customers: Customer[];
+
+  getAll(): Observable<Customer[]> {
+    return this.http.get<Customer[]>('api/customers');
+  }
+
+
 
   getById(id: number): Customer {
     const filtered = this.customers.filter(c => c.id === id);

@@ -9,6 +9,7 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {AppRoutingModuleModule} from './app-routing-module.module';
 import {HomeModule} from './home/home.module';
 import {AuthGuard} from './guards/auth.guard';
+import { JoinPipe } from './pipes/join.pipe';
 
 
 @NgModule({

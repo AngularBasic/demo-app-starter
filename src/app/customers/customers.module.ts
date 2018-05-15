@@ -9,6 +9,7 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {CustomersRoutingModule} from './customers-routing.module';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import {CustomerService} from './customer.service';
+import {JoinPipe} from '../pipes/join.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {CustomerService} from './customer.service';
     CustomerDetailsComponent,
     CustomerFormComponent,
     StartsWithLetterDirective,
-    CustomerListComponent
+    CustomerListComponent,
+    JoinPipe
   ],
   providers: [
     CustomerService

@@ -1,11 +1,12 @@
 
     <div class="header">
-      {{ customer.name}}, {{ customer.firstname }}
+      {{ customer.name | uppercase}}, {{ customer.firstname | uppercase }}
     </div>
     <div class="content">
     <span>
       My hobbies:
-      <span *ngFor="let hobby of customer.hobbies">H: {{hobby}}</span>
+      <!--<span *ngFor="let hobby of customer.hobbies">H: {{hobby}}</span>-->
+    {{ customer.hobbies | appJoin:' + ' }}
     </span>
 
     </div>

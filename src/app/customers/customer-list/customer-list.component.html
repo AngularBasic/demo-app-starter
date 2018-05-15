@@ -1,4 +1,7 @@
 <div class="customers-search">
+  <mat-form-field>
+    <input matInput [formControl]="searchTerm" placeholder="Search..." />
+  </mat-form-field>
   <button mat-icon-button (click)="addNewCustomer()">
     <mat-icon>add</mat-icon>
   </button>

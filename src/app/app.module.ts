@@ -3,16 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // App Root
 import { AppComponent } from './app.component';
-import {CustomersModule} from "./customers/customers.module";
+import {CustomersModule} from './customers/customers.module';
+import {StartsWithLetterDirective} from './directives/starts-with-letter.directive';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    CustomersModule
+    CustomersModule,
+    // MatInputModule,
+    // MatFormFieldModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+  ],
+  exports: [
+    // MatInputModule,
+    // MatFormFieldModule
   ],
   bootstrap: [AppComponent]
 })

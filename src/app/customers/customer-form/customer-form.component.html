@@ -1,0 +1,22 @@
+<form novalidate [formGroup]="form" (ngSubmit)="submit()">
+
+  <input [class]="getClass()" formControlName="name" />
+
+
+      <input type="text" placeholder="Firstname" formControlName="firstname" />
+      <input type="text"  appStartsWithLetter placeholder="Email" formControlName="email" />
+      <div *ngIf="form.get('email').hasError('required') && form.get('email').dirty">Required!</div>
+      <div *ngIf="form.get('email').hasError('email') && form.get('email').dirty">EMAIL!</div>
+  <div class="form-row">
+    <mat-form-field>
+      <input type="number" matInput placeholder="Number of orders" formControlName="numberOfOrders" />
+    </mat-form-field>
+  </div>
+
+  <!--<button  type="submit" [disabled]="form.invalid" >submit</button>-->
+  <button  type="submit"  >submit</button>
+</form>
+
+<p>
+  {{form.value | json}}
+</p>

@@ -2,9 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Customer} from '../customer';
 import {ActivatedRoute, Router} from '@angular/router';
-import { map } from 'rxjs/operators';
+import {map, switchMap, filter} from 'rxjs/operators';
 import {CustomerService} from '../customer.service';
 import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-customer-form',
@@ -25,15 +26,17 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private customerService: CustomerService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.form = Customer.toFormGroup();
 
     const s = this.route.paramMap.pipe(
       map(params => Number(params.get('id'))),
-      map((id: number) => this.customerService.getById(id))
-  ).subscribe((customer: Customer) => {
+      filter(id => id !== 0),
+      switchMap((id: number) => this.customerService.getById(id))
+    ).subscribe((customer: Customer) => {
       if (customer) {
         this.form.patchValue(customer);
       }
@@ -55,9 +58,19 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
 
   getClass(): string {
     return this.x < 10 ? 'red' : 'green';
-}
+  }
+
   submit() {
     console.log('submit', this.form);
-    this.router.navigate(['customers']);
+
+    const cust = <Customer>this.form.getRawValue();
+
+    const save$ = cust.id !== 0
+      ? this.customerService.update.bind(this.customerService) :
+      this.customerService.create.bind(this.customerService);
+
+    save$(cust).subscribe(_ => {
+      this.router.navigate(['customers']);
+    });
   }
 }

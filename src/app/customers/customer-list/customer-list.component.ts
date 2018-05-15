@@ -4,6 +4,7 @@ import {Customer} from '../customer';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,7 +13,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class CustomerListComponent implements OnInit, OnDestroy {
 
-  constructor(private customerService: CustomerService) {}
+  constructor(private customerService: CustomerService, private router: Router) {}
 
   private customersSubject = new BehaviorSubject<Customer[]>([]);
 
@@ -37,6 +38,10 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   get customers(): Observable<Customer[]> {
      return this.customersSubject.asObservable();
+  }
+
+  addNewCustomer() {
+    this.router.navigateByUrl('/customers/0');
   }
 
 }

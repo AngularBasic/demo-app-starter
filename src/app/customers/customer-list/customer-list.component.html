@@ -1,3 +1,9 @@
+<div class="customers-search">
+  <button mat-icon-button (click)="addNewCustomer()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <div class="customer">
   <app-customer [customer]="customer" *ngFor="let customer of customers | async"></app-customer>
 </div>

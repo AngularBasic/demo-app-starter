@@ -5,7 +5,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StartsWithLetterDirective} from '../directives/starts-with-letter.directive';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
 import {CustomersRoutingModule} from './customers-routing.module';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import {CustomerService} from './customer.service';
@@ -19,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     HttpClientModule,
     CustomersRoutingModule
   ],

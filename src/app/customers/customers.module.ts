@@ -6,6 +6,7 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StartsWithLetterDirective} from '../directives/starts-with-letter.directive';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {CustomersRoutingModule} from './customers-routing.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    CustomersRoutingModule
   ],
   exports: [
     CustomerComponent,

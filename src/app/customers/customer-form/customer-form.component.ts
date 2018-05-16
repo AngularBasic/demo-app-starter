@@ -65,7 +65,7 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
 
     const cust = <Customer>this.form.getRawValue();
 
-    const save$ = cust.id !== 0
+    const save$ = (cust.id && cust.id !== 0)
       ? this.customerService.update.bind(this.customerService) :
       this.customerService.create.bind(this.customerService);
 

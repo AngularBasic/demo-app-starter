@@ -1,2 +1,17 @@
 <h1>Welcome to app!</h1>
 
+<p>my current user : {{  user.name |  uppercase }}</p>
+
+gerundeter Wert: {{ 2.123454 | number:'2.3-5' }}
+<p>
+{{ 1+2 }}
+</p>
+
+<div *ngFor="let h of user?.hobbies">{{h}}</div>
+<div *ngFor="let h of getHobbies()">{{h}}</div>
+
+<pre>{{user | json}}</pre>
+
+<app-customer></app-customer>
+
+

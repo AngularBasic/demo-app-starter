@@ -18,4 +18,8 @@ export class CustomerFormComponent implements OnInit {
     this.form = Customer.toFormGroup();
   }
 
+  submitUser() {
+    console.log('submitted form:', this.form);
+  }
+
 }

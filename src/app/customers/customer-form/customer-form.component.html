@@ -1,3 +1,7 @@
-<form [formGroup]="form" >
-  <input type="text" placeholder="FirstName" formControlName="firstname" />
+<form novalidate [formGroup]="form" (ngSubmit)="submitUser()" >
+
+
+  <input #firstnameInput type="text" placeholder="FirstName" formControlName="firstname" />
+
+  <button type="submit">Submit! {{firstnameInput.value}}</button>
 </form>

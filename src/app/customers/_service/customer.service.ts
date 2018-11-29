@@ -9,7 +9,10 @@ export class CustomerService {
   private customers: CustomerModel[];
 
   constructor() {
-    this.customers = [{id: 1, name: 'Homer Simpson' }];
+    this.customers = [
+      {id: 1, name: 'Homer Simpson' },
+      {id: 2, name: 'Marge Simpson' }
+      ];
   }
 
   getCustomer(id: number): CustomerModel {

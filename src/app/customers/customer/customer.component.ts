@@ -21,7 +21,7 @@ import {CustomerService} from '../_service/customer.service';
 })
 export class CustomerComponent implements OnInit, OnDestroy {
 
-  _internalCustomer: CustomerModel;
+  private _internalCustomer: CustomerModel;
 
   constructor(private customerService: CustomerService) {
   }

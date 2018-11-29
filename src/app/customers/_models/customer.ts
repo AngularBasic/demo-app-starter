@@ -1,5 +1,5 @@
 import {CustomerModel} from './customer.model';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 
 export class Customer implements CustomerModel {
   firstname: string;
@@ -9,7 +9,8 @@ export class Customer implements CustomerModel {
   static toFormGroup(customer: Customer = new Customer()) {
     const builder = new FormBuilder();
     return builder.group({
-        firstname: builder.control(customer.firstname)
+        firstname: builder.control(customer.firstname),
+        name: builder.control(customer.name, Validators.required)
       }
 
     );

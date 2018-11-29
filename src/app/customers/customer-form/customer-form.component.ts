@@ -9,17 +9,24 @@ import {Customer} from '../_models/customer';
 })
 export class CustomerFormComponent implements OnInit {
 
-  form: FormGroup;
+  myForm: FormGroup;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.form = Customer.toFormGroup();
+    this.myForm = Customer.toFormGroup();
   }
 
   submitUser() {
-    console.log('submitted form:', this.form);
+    console.log('submitted myForm:', this.myForm);
+  }
+
+  getClass() {
+    if (this.myForm.controls.firstname.valid) {
+      return 'green';
+    }
+    return 'red';
   }
 
 }

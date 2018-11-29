@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CustomerModel} from '../_models/customer.model';
 
 @Component({
   selector: 'app-customer-details',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-details.component.scss']
 })
 export class CustomerDetailsComponent implements OnInit {
+
+  @Input() customerDetails: CustomerModel;
 
   constructor() { }
 

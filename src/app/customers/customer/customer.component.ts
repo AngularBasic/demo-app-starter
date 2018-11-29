@@ -4,8 +4,17 @@ import { CustomerModel } from '../_models/customer.model';
 @Component({
   selector: 'app-customer',
   template: `
-  <p>Customer: {{ customer?.name }}</p>
+    <p>Customer: {{ customer?.name }}</p>
+    <p>
+      customer works!
+      Hello
+    </p>
 
+    <div></div>
+
+    <app-customer-details [customerDetails]="customer"></app-customer-details>
+    <hr/>
+    <app-customer-form></app-customer-form>
   `,
   styleUrls: ['./customer.component.scss']
 })

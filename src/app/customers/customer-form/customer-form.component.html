@@ -1,8 +1,19 @@
 <form novalidate [formGroup]="myForm" (ngSubmit)="submitUser()" >
 
 
-  <input #firstnameInput type="text" placeholder="FirstName" formControlName="firstname" />
-  <input [class]="getClass()" type="text" placeholder="Name" formControlName="name" />
+  <input #firstnameInput
+         type="text"
+         placeholder="FirstName"
+         formControlName="firstname"
+         [class]="getClass(myForm.get('firstname'))"
+  />
+  <input [class]="getClass(myForm.get('name'))" type="text" placeholder="Name" formControlName="name" />
+  <input appHasLetters="2"
+         type="text"
+         placeholder="Email"
+         formControlName="email"
+         [class]="getClass(myForm.get('email'))"
+  />
 
   <button [disabled]="myForm.invalid" type="submit">Submit! {{firstnameInput.value}}</button>
 </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {AbstractControl, FormGroup} from '@angular/forms';
 import {Customer} from '../_models/customer';
 
 @Component({
@@ -22,8 +22,9 @@ export class CustomerFormComponent implements OnInit {
     console.log('submitted myForm:', this.myForm);
   }
 
-  getClass() {
-    if (this.myForm.controls.firstname.valid) {
+  getClass(obj: AbstractControl) {
+    // console.log('obj', obj);
+    if (obj.valid) {
       return 'green';
     }
     return 'red';

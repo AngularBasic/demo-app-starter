@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomerModel } from '../_models/customer.model';
+import {CustomerService} from '../_service/customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -20,18 +21,20 @@ import { CustomerModel } from '../_models/customer.model';
 })
 export class CustomerComponent implements OnInit, OnDestroy {
 
+  _internalCustomer: CustomerModel;
 
-  customer: CustomerModel;
-
-  constructor() {
-    this.customer = { id: 1, name: "Homer Simpson" };
+  constructor(private customerService: CustomerService) {
   }
 
   ngOnInit() {
-
+    this._internalCustomer = this.customerService.getCustomer(1);
   }
 
   ngOnDestroy(): void {
     // throw new Error("Method not implemented.");
+  }
+
+  get customer(): CustomerModel {
+    return this._internalCustomer;
   }
 }

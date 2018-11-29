@@ -6,22 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'app';
+  constructor() {
 
-  user = {
-    id: 12,
-    name: 'chuck Norris',
-    hobbies: ['eat', 'sleep', 'drink']
-  };
-
-  user2 = 0;
-
-  constructor() { }
-
-  getHobbies() {
-    if (this.user2) {
-        //
-    }
-    return this.user.hobbies;
   }
 }

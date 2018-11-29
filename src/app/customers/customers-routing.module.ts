@@ -6,6 +6,8 @@ import {CustomerFormComponent} from './customer-form/customer-form.component';
 
 const routes: Routes = [
   {path: 'customers', component: CustomerComponent},
+  // overrides '/foo' from app-routing!
+  {path: 'foo', component: CustomerComponent},
   {path: 'customers/:id', component: CustomerFormComponent},
 ];
 

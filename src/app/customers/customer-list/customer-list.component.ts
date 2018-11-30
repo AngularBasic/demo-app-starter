@@ -43,20 +43,21 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       .subscribe(newValue => {
         console.log('search', newValue);
         // the inconvenient way
-        const list = this.unfilteredCustomersSubject.value;
-        const filteredList = list.filter(f =>
-          f.firstname.includes(newValue) || f.name.includes(newValue));
-        this.customersSubject.next(filteredList);
+        // const list = this.unfilteredCustomersSubject.value;
+        // const filteredList = list.filter(f =>
+        //   f.firstname.includes(newValue) || f.name.includes(newValue));
+        // this.customersSubject.next(filteredList);
 
         // the reactive way
         this.searchSubject.next(newValue);
     });
-    // this.subscriptions.push(s2);
+    this.subscriptions.push(s2);
   }
 
   get customers(): Observable<CustomerModel[]> {
     return combineLatest(this.customersSubject, this.searchSubject,
       (customers: CustomerModel[], search: string) => {
+        console.log('reactive search', search);
           return customers.filter(c =>
             !search ||
             c.firstname.includes(search) || c.name.includes(search));

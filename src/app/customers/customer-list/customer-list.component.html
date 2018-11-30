@@ -10,5 +10,5 @@
 
 <div *ngFor="let customer of customers | async">
   {{customer.name}}, {{customer.firstname}}
-  <div>{{ customer.hobbies | appJoin }}</div>
+  <div>{{ customer.hobbies | appJoin:' + ' }}</div>
 </div>

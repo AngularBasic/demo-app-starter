@@ -15,6 +15,11 @@ describe('JoinPipe', () => {
     const result = pipe.transform([1, 2, 3]);
     expect(result).toBe('1, 2, 3');
   });
+  it('should convert array to string with given separator', () => {
+    const pipe = new JoinPipe();
+    const result = pipe.transform([1, 2, 3], '+');
+    expect(result).toBe('1+2+3');
+  });
   it('should not throw error on undefined input', () => {
     const pipe = new JoinPipe();
     const result = pipe.transform(null);

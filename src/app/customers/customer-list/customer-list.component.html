@@ -1,3 +1,13 @@
+<div class="customers-search">
+  <mat-form-field>
+    <input matInput [formControl]="searchTerm"
+    placeholder="Search..."
+    />
+  </mat-form-field>
+</div>
+
+
+
 <div *ngFor="let customer of customers | async">
   {{customer.name}}, {{customer.firstname}}
 </div>

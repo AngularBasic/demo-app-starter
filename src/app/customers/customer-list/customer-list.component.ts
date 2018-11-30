@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/internal/Observable';
 import {CustomerModel} from '../_models/customer.model';
 import {BehaviorSubject} from 'rxjs/internal/BehaviorSubject';
 import {Subscription} from 'rxjs/internal/Subscription';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-customer-list',
@@ -18,6 +19,8 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     new BehaviorSubject<CustomerModel[]>([]);
 
   private subscriptions: Subscription[] = [];
+
+  searchTerm = new FormControl();
 
   ngOnInit() {
     const s = this.customerService.getCustomersAsync().subscribe(customers => {

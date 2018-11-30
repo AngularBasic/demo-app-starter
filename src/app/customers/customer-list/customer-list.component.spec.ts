@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerListComponent } from './customer-list.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {JoinPipe} from '../../shared/_pipes/join.pipe';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
@@ -8,7 +13,16 @@ describe('CustomerListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomerListComponent ]
+      declarations: [ CustomerListComponent, JoinPipe ],
+      imports: [
+        NoopAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        HttpClientTestingModule
+      ],
+      providers: []
     })
     .compileComponents();
   }));

@@ -40,10 +40,12 @@ export class CustomerService {
     });
   }
 
-  updateCustomer(customer: CustomerModel) {
-    this.http.put('/api/customers', customer).subscribe(result => {
-      this._load();
-    });
+  updateCustomer(customer: CustomerModel): Observable<CustomerModel> {
+    const obs = this.http.put<CustomerModel>('/api/customers', customer);
+      obs.subscribe(result => {
+        this._load();
+      });
+    return obs;
   }
 
   getCustomer(id: number): CustomerModel {

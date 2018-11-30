@@ -4,6 +4,8 @@ import {Customer} from '../_models/customer';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {CustomerService} from '../_service/customer.service';
+import { CustomerModel } from '../_models/customer.model';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-customer-form',
@@ -16,7 +18,8 @@ export class CustomerFormComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-          private customerService: CustomerService
+    private customerService: CustomerService,
+          private snackbar: MatSnackBar
   ) {
   }
 
@@ -38,6 +41,10 @@ export class CustomerFormComponent implements OnInit {
 
   submitUser() {
     console.log('submitted myForm:', this.myForm);
+    this.customerService.updateCustomer(<CustomerModel>this.myForm.getRawValue())
+      .subscribe(ok => {
+        this.snackbar.open('save was ok','',{duration: 1000});
+      });
   }
 
   getClass(obj: AbstractControl) {

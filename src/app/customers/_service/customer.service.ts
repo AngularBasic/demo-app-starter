@@ -52,4 +52,9 @@ export class CustomerService {
       c => c.id === id);
     return list.length > 0 ? list[0] : null;
   }
+
+  getCustomerAsync(id: number): Observable<CustomerModel> {
+    console.log('get customer', id);
+    return this.http.get<CustomerModel>(`/api/customers/${id}`);
+  }
 }

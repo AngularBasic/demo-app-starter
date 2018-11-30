@@ -1,3 +1,14 @@
-<p>
+<div class="header">
+  {{customerDetails.name}}, {{customerDetails.firstname}}
+</div>
+<div class="content">
+  {{ customerDetails.hobbies | appJoin:' + ' }}
+</div>
+<div class="details">
+  <pre>
   {{customerDetails | json}}
-</p>
+</pre>
+</div>
+<div class="footer">
+  <button mat-button (click)="edit()">edit</button>
+</div>

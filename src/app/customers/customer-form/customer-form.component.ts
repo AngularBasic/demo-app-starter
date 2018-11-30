@@ -26,10 +26,13 @@ export class CustomerFormComponent implements OnInit {
         map((value: ParamMap) => Number(value.get('id'))),
       )
       .subscribe((value: number) => {
-      console.log('route', value);
-      const id = value;
-      const customer = this.customerService.getCustomer(id);
-      this.myForm = Customer.toFormGroup(<Customer>customer);
+        console.log('route', value);
+        const id = value;
+        // const customer = this.customerService.getCustomer(id);
+        this.customerService.getCustomerAsync(id).subscribe(asyncCustomer => {
+          this.myForm = Customer.toFormGroup(<Customer>asyncCustomer);
+
+      });
     });
   }
 

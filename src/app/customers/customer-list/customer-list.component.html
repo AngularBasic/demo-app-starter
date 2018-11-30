@@ -7,8 +7,13 @@
 </div>
 
 
+<div class="customer">
+  <div *ngFor="let customer of customers | async">
+    <app-customer-details [customerDetails]="customer">
 
-<div *ngFor="let customer of customers | async">
-  {{customer.name}}, {{customer.firstname}}
-  <div>{{ customer.hobbies | appJoin:' + ' }}</div>
+    </app-customer-details>
+    <!--{{customer.name}}, {{customer.firstname}}
+    <div>{{ customer.hobbies | appJoin:' + ' }}</div>
+    -->
+  </div>
 </div>

@@ -12,23 +12,28 @@ export class LoggingInterceptor implements HttpInterceptor {
     console.log('intercept', req);
     const responseStream = next.handle(req);
 
-    responseStream.pipe(
+    const newStream: Observable<HttpEvent<any>> = responseStream.pipe(
 
       map((response) => {
-        // manipulate response here
-        // ???
+
+        console.log('map', response);
         if (response instanceof HttpResponse) {
-          console.log('map', response);
-          return response.clone({body: {}});
+          // manipulate response here
+          // return response.clone({body: {}});
+          return response;
         }
         return response;
       })
-    ).subscribe(resp => {
+    );
+
+    newStream.subscribe(resp => {
       // manipulation of response here has no effect
       console.log('response:', resp);
     });
 
-    return responseStream;
+    return newStream;
+
+    // return responseStream;
   }
 
 }

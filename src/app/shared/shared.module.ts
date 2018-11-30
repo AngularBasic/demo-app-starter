@@ -4,9 +4,12 @@ import { HasLettersDirective } from './_directives/has-letters.directive';
 import {HttpClientModule} from '@angular/common/http';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { JoinPipe } from './_pipes/join.pipe';
 
 @NgModule({
-  declarations: [HasLettersDirective],
+  declarations: [
+    HasLettersDirective,
+    JoinPipe],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -19,7 +22,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    JoinPipe
   ]
 })
 export class SharedModule { }

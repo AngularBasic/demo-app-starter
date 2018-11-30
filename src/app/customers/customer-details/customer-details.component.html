@@ -1,14 +1,16 @@
-<div class="header">
-  {{customerDetails.name}}, {{customerDetails.firstname}}
-</div>
-<div class="content">
-  {{ customerDetails.hobbies | appJoin:' + ' }}
-</div>
-<div class="details">
-  <pre>
-  {{customerDetails | json}}
-</pre>
-</div>
-<div class="footer">
-  <button mat-button (click)="edit()">edit</button>
-</div>
+<mat-card class="customer-card">
+  <mat-card-header>
+    <mat-card-title>{{customerDetails.name}}, {{customerDetails.firstname}}</mat-card-title>
+    <mat-card-subtitle> {{ customerDetails.hobbies | appJoin:' + ' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+
+        {{customerDetails | json}}
+
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-stroked-button color="primary" (click)="edit()">edit</button>
+  </mat-card-footer>
+</mat-card>

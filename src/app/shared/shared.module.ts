@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HasLettersDirective } from './_directives/has-letters.directive';
 import {HttpClientModule} from '@angular/common/http';
-import {MatFormFieldModule, MatInputModule, MatButtonModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { JoinPipe } from './_pipes/join.pipe';
 
@@ -16,7 +16,8 @@ import { JoinPipe } from './_pipes/join.pipe';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   exports: [
     HasLettersDirective,
@@ -25,7 +26,9 @@ import { JoinPipe } from './_pipes/join.pipe';
     MatInputModule,
     MatFormFieldModule,
     JoinPipe,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+
   ]
 })
 export class SharedModule { }

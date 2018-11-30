@@ -5,4 +5,19 @@ describe('JoinPipe', () => {
     const pipe = new JoinPipe();
     expect(pipe).toBeTruthy();
   });
+  it('should not modify non-array', () => {
+    const pipe = new JoinPipe();
+    const result = pipe.transform('hello');
+    expect(result).toBe('hello');
+  });
+  it('should convert array to string', () => {
+    const pipe = new JoinPipe();
+    const result = pipe.transform([1, 2, 3]);
+    expect(result).toBe('1, 2, 3');
+  });
+  it('should not throw error on undefined input', () => {
+    const pipe = new JoinPipe();
+    const result = pipe.transform(null);
+    expect(result).toBe(null);
+  });
 });

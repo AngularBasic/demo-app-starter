@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HasLettersDirective } from './_directives/has-letters.directive';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [HasLettersDirective],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
-  exports: [HasLettersDirective]
+  exports: [
+    HasLettersDirective,
+    HttpClientModule
+  ]
 })
 export class SharedModule { }

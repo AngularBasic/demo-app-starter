@@ -6,7 +6,9 @@ export class Customer implements CustomerModel {
   firstname: string;
   id: number;
   name: string;
-  email: string;
+  email?: string;
+  numberOfOrders: number;
+  hobbies: string[];
 
   static toFormGroup(customer: Customer = new Customer()) {
     const builder = new FormBuilder();

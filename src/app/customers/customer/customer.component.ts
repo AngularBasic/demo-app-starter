@@ -5,6 +5,7 @@ import {CustomerService} from '../_service/customer.service';
 @Component({
   selector: 'app-customer',
   template: `
+    <!--
     <p>Customer: {{ customer?.name }}</p>
     <p>
       customer works!
@@ -16,6 +17,8 @@ import {CustomerService} from '../_service/customer.service';
     <app-customer-details [customerDetails]="customer"></app-customer-details>
     <hr/>
     <app-customer-form></app-customer-form>
+    -->
+    <app-customer-list></app-customer-list>
   `,
   styleUrls: ['./customer.component.scss']
 })

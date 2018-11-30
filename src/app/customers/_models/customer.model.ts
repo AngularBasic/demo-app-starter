@@ -3,5 +3,7 @@ export interface CustomerModel {
   name: string;
 
   firstname?: string;
+  numberOfOrders: number;
+  hobbies: string[];
 }
 

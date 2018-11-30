@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {CustomerModel} from '../_models/customer.model';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs/internal/BehaviorSubject';
+import {Observable} from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +11,39 @@ export class CustomerService {
 
   private customers: CustomerModel[];
 
-  constructor() {
-    this.customers = [
-      {id: 1, name: 'Homer Simpson' },
-      {id: 2, name: 'Marge Simpson' }
-      ];
+  private customersSubject: BehaviorSubject<CustomerModel[]> =
+    new BehaviorSubject([]);
+
+  constructor(private http: HttpClient) {
+    this.customers = [];
+    this._load();
+  }
+
+  private _load() {
+    this.http.get<CustomerModel[]>('/api/customers')
+      .subscribe((result: CustomerModel[]) => {
+        console.log('customers loaded', result);
+        this.customers = result;
+
+        this.customersSubject.next(result);
+
+      });
+  }
+
+  getCustomersAsync(): Observable<CustomerModel[]> {
+    return this.customersSubject.asObservable();
+  }
+
+  createCustomer(customer: CustomerModel) {
+    this.http.post('/api/customers', customer).subscribe(result => {
+      this._load();
+    });
+  }
+
+  updateCustomer(customer: CustomerModel) {
+    this.http.put('/api/customers', customer).subscribe(result => {
+      this._load();
+    });
   }
 
   getCustomer(id: number): CustomerModel {
